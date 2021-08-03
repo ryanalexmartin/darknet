@@ -3,7 +3,7 @@
 # How to use
 1. Build the docker image
 ```
-docker build -t darren/opencv-cuda:11.3.1-cudnn8-devel-ubuntu20.04-opencv-4.5.3 ../.
+docker build -t darren/opencv-cuda:11.3.1-cudnn8-devel-ubuntu20.04-opencv-4.5.3 .
 ```
 
 2. Run
@@ -30,6 +30,16 @@ cmake --build . --target install --parallel 8
 
 6. Set up your XAuth if you do not see the darknet demo displayed.
 https://www.cloudsavvyit.com/10520/how-to-run-gui-applications-in-a-docker-container/
+    - On the host machine, copy the xauth token.
+    ```
+    xauth list
+    ```
+    - In the container, paste the copied token
+    ```
+    xauth add <token>
+    # Example:
+    # xauth add iphone13/unix:  MIT-MAGIC-COOKIE-1  1fba3d4616632715160f533ee5ca344e
+    ```
 
 7. Run the demo
 ```
