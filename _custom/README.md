@@ -1,7 +1,8 @@
 # Custom stuff
 
 # How to use
-1. Build the docker image
+1. Build the docker image. 
+Modify the cmake argument `-DCUDA_ARCH_BIN` in [Dockerfile](Dockerfile) to build for specific GPU architecture.
 ```
 docker build -t darren/opencv-cuda:11.3.1-cudnn8-devel-ubuntu20.04-opencv-4.5.3 .
 ```
