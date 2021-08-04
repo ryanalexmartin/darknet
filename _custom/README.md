@@ -1,10 +1,14 @@
 # Custom stuff
 
+# Requirements
+- Change default container runtime for docker to "nvidia-container-runtime". <https://docs.nvidia.com/dgx/nvidia-container-runtime-upgrade/index.html>
+
 # How to use
 1. Build the docker image. 
-Modify the cmake argument `-DCUDA_ARCH_BIN` in [Dockerfile](Dockerfile) to build for specific GPU architecture.
+Modify the cmake arguments `-DCUDA_ARCH_BIN`, `DCUDA_ARCH_PTX` in [app/Dockerfile](app/Dockerfile) 
+to build for specific GPU architecture.
 ```
-docker build -t darren/opencv-cuda:11.3.1-cudnn8-devel-ubuntu20.04-opencv-4.5.3 .
+docker build -t darren/opencv-cuda:cuda-11.3.1-cudnn8-opencv-4.5.3 .
 ```
 
 2. Run

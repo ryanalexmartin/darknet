@@ -9,11 +9,4 @@ services:
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - /home/darren/Documents/albion_stuff/:/albion_stuff
-    deploy:
-      resources:
-        reservations:
-          devices:
-          - driver: nvidia
-            count: 1
-            capabilities: [gpu, utility]
     network_mode: host

@@ -71,7 +71,8 @@ RUN cd /opt/ &&\
         # Install path will be /usr/local/lib (lib is implicit)
         -D CMAKE_INSTALL_PREFIX=/usr/local \
         # Change the compute capability value to your GPU's value
-        # -D CUDA_ARCH_BIN=6.1 \
+        # -DCUDA_ARCH_BIN=6.1 \
+        # -DCUDA_ARCH_PTX=6.1 \
         .. &&\
     # Make
     make -j"$(nproc)" && \
