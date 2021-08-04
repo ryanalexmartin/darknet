@@ -3,6 +3,7 @@ version: "3"
 services:
   app:
     image: darren/opencv-cuda:cuda-11.3.1-cudnn8-opencv-4.5.3
+    build: .
     command: tail -F anything
     environment:
       - DISPLAY=${DISPLAY}
@@ -10,5 +11,5 @@ services:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ./albion-online/:/albion-online
     devices:
-      - ${WEBCAM}:${WEBCAM}
+      - ${WEBCAM_HOST}:${WEBCAM_CONTAINER}
     network_mode: host

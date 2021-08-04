@@ -84,3 +84,11 @@ RUN cd /opt/ &&\
     # rm -rf /opt/opencv_contrib-${OPENCV_VERSION}
 
 WORKDIR /src
+
+RUN git clone https://github.com/ryanalexmartin/darknet.git &&\
+    cd darknet &&\
+    mkdir build_release &&\
+    cd build_release && \
+    rm ../CMakeCache.txt &&\
+    cmake .. &&\
+    cmake --build . --target install --parallel 8
