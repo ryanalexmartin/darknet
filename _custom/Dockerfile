@@ -92,3 +92,9 @@ RUN git clone https://github.com/ryanalexmartin/darknet.git &&\
     rm ../CMakeCache.txt &&\
     cmake .. &&\
     cmake --build . --target install --parallel 8
+
+ARG XAUTH_TOKEN
+
+RUN xauth add $XAUTH_TOKEN
+
+WORKDIR /src/darknet

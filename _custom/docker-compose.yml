@@ -3,7 +3,10 @@ version: "3"
 services:
   app:
     image: darren/opencv-cuda:cuda-11.3.1-cudnn8-opencv-4.5.3
-    build: .
+    build: 
+      context: .
+      args:
+        - XAUTH_TOKEN
     command: tail -F anything
     environment:
       - DISPLAY=${DISPLAY}
