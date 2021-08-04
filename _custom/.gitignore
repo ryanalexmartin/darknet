@@ -1,0 +1,5 @@
+# ignore albion-online training data
+albion-online/*
+!albion-online/example-template.cfg
+
+.env

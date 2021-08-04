@@ -8,5 +8,7 @@ services:
       - DISPLAY=${DISPLAY}
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - /home/darren/Documents/albion_stuff/:/albion_stuff
+      - ./albion-online/:/albion-online
+    devices:
+      - ${WEBCAM}:${WEBCAM}
     network_mode: host
