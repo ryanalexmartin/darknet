@@ -7,6 +7,7 @@ services:
       context: .
       args:
         - XAUTH_TOKEN
+        - GPU_COMPUTE_CAPABILITY
     command: tail -F anything
     environment:
       - DISPLAY=${DISPLAY}

@@ -50,6 +50,8 @@ RUN apt-get remove -y cmake
 COPY requirements.txt /requirements.txt
 RUN pip3 install -r /requirements.txt
 
+ARG GPU_COMPUTE_CAPABILITY
+
 RUN cd /opt/ &&\
     # Download and unzip OpenCV and opencv_contrib and delte zip files
     wget https://github.com/opencv/opencv/archive/$OPENCV_VERSION.zip &&\
@@ -71,8 +73,8 @@ RUN cd /opt/ &&\
         # Install path will be /usr/local/lib (lib is implicit)
         -D CMAKE_INSTALL_PREFIX=/usr/local \
         # Change the compute capability value to your GPU's value
-        # -DCUDA_ARCH_BIN=6.1 \
-        # -DCUDA_ARCH_PTX=6.1 \
+        -DCUDA_ARCH_BIN=${GPU_COMPUTE_CAPABILITY} \
+        -DCUDA_ARCH_PTX=${GPU_COMPUTE_CAPABILITY} \
         .. &&\
     # Make
     make -j"$(nproc)" && \
