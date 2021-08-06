@@ -18,3 +18,12 @@ services:
     devices:
       - ${WEBCAM_HOST}:${WEBCAM_CONTAINER}
     network_mode: host
+
+  python-bot:
+    image: darren/python:3.9.6-buster
+    build:
+      context: app/.
+    command: tail -F anything
+    volumes:
+      - ./app:/app
+    network_mode: host
