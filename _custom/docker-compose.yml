@@ -9,7 +9,7 @@ services:
         - XAUTH_TOKEN=${XAUTH_TOKEN}
         - GPU_COMPUTE_CAPABILITY=${GPU_COMPUTE_CAPABILITY}
         - OPENCV_VERSION=${OPENCV_VERSION}
-    command: tail -F anything
+    command: ["${STREAM_JSON}"]
     environment:
       - DISPLAY=${DISPLAY}
     volumes:

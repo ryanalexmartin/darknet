@@ -100,4 +100,8 @@ ARG XAUTH_TOKEN
 
 RUN xauth add $XAUTH_TOKEN
 
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT [ "/entrypoint.sh" ]
+CMD [""]
+
 WORKDIR /src/darknet
