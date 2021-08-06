@@ -1,5 +1,4 @@
 import json
-from json import decoder
 import requests
 import json
 
@@ -10,9 +9,17 @@ buffer = ""
 
 for line in r.iter_lines():
     linestr = line.decode("utf-8")
-    buffer += linestr
 
-    if(linestr=="},"):
-        buffer += "}"
-        print(buffer)
-        buffer == ""
+    # Ignore first opening array
+    if(linestr.strip() == "["):
+        continue
+
+    if(linestr.strip()=="},"):
+        buffer ="[" + buffer + "}]"
+
+        obj = json.loads(buffer)
+        print(obj)
+        buffer = ""
+
+    else:
+        buffer += linestr
