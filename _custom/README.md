@@ -41,5 +41,6 @@ change the volume path in your docker-compose.yml file.
     # Webcam
     ./darknet detector demo _custom/albion-online/albion-online.data \
     _custom/albion-online/albion-online-yolov4.cfg \
-    _custom/albion-online/backup/albion-online-yolov4_final.weights -c 0
+    _custom/albion-online/backup/albion-online-yolov4_final.weights \
+    -c 0 -json_port 8070 -dont_show
     ```

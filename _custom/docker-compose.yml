@@ -1,10 +1,10 @@
 version: "3"
 
 services:
-  app:
+  yolo:
     image: darren/opencv-cuda:cuda-11.3.1-cudnn8-opencv-4.5.3
     build: 
-      context: .
+      context: yolo/.
       args:
         - XAUTH_TOKEN
         - GPU_COMPUTE_CAPABILITY

@@ -1,7 +1,6 @@
 # sudo docker build -t darren/opencv-cuda:11.3.1-cudnn8-devel-ubuntu20.04-opencv-4.5.2 app/.
 FROM nvidia/cuda:11.3.1-cudnn8-devel-ubuntu20.04
 
-ARG OPENCV_VERSION=4.5.3
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update
@@ -46,11 +45,10 @@ RUN apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get remove -y cmake
-
-COPY requirements.txt /requirements.txt
-RUN pip3 install -r /requirements.txt
+RUN pip3 install cmake
 
 ARG GPU_COMPUTE_CAPABILITY
+ARG OPENCV_VERSION
 
 RUN cd /opt/ &&\
     # Download and unzip OpenCV and opencv_contrib and delte zip files
@@ -84,6 +82,9 @@ RUN cd /opt/ &&\
     # Remove OpenCV sources and build folder
     # rm -rf /opt/opencv-${OPENCV_VERSION} && \
     # rm -rf /opt/opencv_contrib-${OPENCV_VERSION}
+
+COPY requirements.txt /requirements.txt
+RUN pip3 install -r /requirements.txt
 
 WORKDIR /src
 
