@@ -6,8 +6,9 @@ services:
     build: 
       context: yolo/.
       args:
-        - XAUTH_TOKEN
-        - GPU_COMPUTE_CAPABILITY
+        - XAUTH_TOKEN=${XAUTH_TOKEN}
+        - GPU_COMPUTE_CAPABILITY=${GPU_COMPUTE_CAPABILITY}
+        - OPENCV_VERSION=${OPENCV_VERSION}
     command: tail -F anything
     environment:
       - DISPLAY=${DISPLAY}
